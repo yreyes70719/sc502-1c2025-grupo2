@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuario</title>
     <link rel="stylesheet" href="../css/register_styles.css">
+    <script src="../js/script.js"></script>
 </head>
 <body>
     <div class="app-title">
@@ -14,7 +15,7 @@
     </div>
     <div class="register-container">
         <h2>Registro de Usuario</h2>
-        <form>
+        <form onsubmit="redirectToHome(event)">
             <label for="userName">Nombre de Usuario:</label>
             <input type="text" id="userName" name="userName" required>
             
