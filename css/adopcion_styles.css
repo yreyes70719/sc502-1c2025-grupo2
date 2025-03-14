@@ -77,3 +77,16 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+.imagenes-adopcion {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.imagen-adopcion {
+    width: 300px;
+    height: auto;
+    margin: 10px;
+    border: 1px solid #ccc; 
+}
