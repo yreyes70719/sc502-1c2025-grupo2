@@ -34,3 +34,11 @@ body {
 h2 {
     color: #4CAF50;
 }
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
