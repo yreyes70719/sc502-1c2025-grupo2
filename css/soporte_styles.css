@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.app-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.app-title .logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.app-title h1 {
+    color: #4CAF50;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.soporte-container {
+    background-color: white;
+    padding: 100px 20px 20px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 98%; /* Ajusta el ancho para evitar desbordamiento */
+    margin: 0 auto; /* Centra el contenedor */
+    text-align: center;
+}
+
+.faq, .contact-form, .soporteEmail, .terms-privacy {
+    margin-bottom: 20px;
+}
+
+.faq ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.faq ul li {
+    margin-bottom: 10px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-bottom: 5px;
+}
+
+.contact-form input, .contact-form textarea {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+}
+
+h2 {
+    color: #4CAF50;
+}
