@@ -4,24 +4,6 @@ body {
     padding: 0;
 }
 
-.app-title {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.app-title .logo {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-}
-
-.app-title h1 {
-    color: #4CAF50;
-    font-size: 2.5em;
-    text-align: center;
-}
-
 .recursos-container {
     background-color: white;
     padding: 100px 20px 20px 20px;
@@ -33,4 +15,35 @@ body {
 
 h2 {
     color: #4CAF50;
+}
+
+.divisor {
+    border-bottom: 1px solid #ddd;
+    margin: 40px 0; /* Aumenta el margen superior e inferior */
+    padding: 0; /* Elimina el padding */
+}
+
+.parrafoT {
+    font-size: 1.2em; /* Aumenta el tamaño de la fuente */
+    color: #333; /* Cambia el color del texto */
+    font-style: italic; /* Aplica estilo cursiva */
+    margin-bottom: 20px; /* Añade un margen inferior */
+    text-align: center; /* Centra el texto */
+}
+
+.recursosT {
+    font-size: 3em; /* Aumenta el tamaño de la fuente */
+    color: #4CAF50; /* Cambia el color del texto */
+    margin-bottom: 20px; /* Añade un margen inferior */
+    text-align: center; /* Centra el título */
+}
+
+.referenciaSoporte {
+    color: #4CAF50; /* Cambia el color del texto */
+    text-decoration: none; /* Elimina la subrayado por defecto */
+}
+
+.referenciaSoporte:hover {
+    color: #377c39; /* Cambia el color del texto al pasar el cursor */
+    text-decoration: underline; /* Subraya el texto al pasar el cursor */
 }
