@@ -1,77 +1,142 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soporte</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/soporte_styles.css">
-    <link rel="stylesheet" href="../css/navbar_styles.css">
-    <script src="../js/script.js"></script>
-</head>
-<body>
-    <header>
-        <div class="navbarPaw">
-            <img src="../images/Paw.png" alt="PawFinder Logo" class="logoPaw">
-            <h1>PawFinder</h1>
-            <nav>
-                <ul>
-                    <li><a href="home.html">Inicio</a></li>
-                    <li><a href="reportes.html">Reportes</a></li>
-                    <li><a href="adopcion.html">Adopción</a></li>
-                    <li><a href="soporte.html" class="active">Soporte</a></li>
-                    <li><a href="recursos.html">Recursos</a></li>
-                    <li><a href="chats.html">Chats</a></li>
-                    <li><a href="perfil.html">Perfil</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <div class="soporte-container">
-        <h2>Soporte</h2>
-        <p>Esta es la página de soporte de la aplicación.</p>
-        
-        <section class="faq">
-            <h3>Preguntas Frecuentes (FAQ)</h3>
-            <ul>
-                <li><strong>Pregunta 1:</strong> Respuesta a la pregunta 1.</li>
-                <li><strong>Pregunta 2:</strong> Respuesta a la pregunta 2.</li>
-                <li><strong>Pregunta 3:</strong> Respuesta a la pregunta 3.</li>
-            </ul>
-        </section>
-        
-        <section class="contact-form">
-            <h3>Reporte de Problemas o Dudas</h3>
-            <form action="submit_form.php" method="post">
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Reporte:</label>
-                <textarea id="message" name="message" required></textarea>
-                
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
-        
-        <section class="soporteEmail">
-            <h3>Correo de Soporte</h3>
-            <p>Para asistencia inmediata envíanos un correo a <a href="mailto:soporte@pawfinder.com">soporte@pawfinder.com</a>.</p>
-        </section>
-        
-        <section class="terms-privacy">
-            <h3>Términos y Condiciones</h3>
-            <p>Aquí puedes agregar la información sobre términos y condiciones.</p>
-            <h3>Política de Privacidad</h3>
-            <p>Aquí puedes agregar la información sobre la política de privacidad.</p>
-        </section>
-    </div>
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Soporte</title>
+        <!-- Bootstrap CSS -->
+
+        <link rel="stylesheet" href="../css/soporte_styles.css">
+        <link rel="stylesheet" href="../css/navbar_styles.css">
+        <script src="../js/script.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="navbarPaw">
+                <img src="../images/Paw.png" alt="PawFinder Logo"
+                    class="logoPaw">
+                <h1>PawFinder</h1>
+                <nav>
+                    <ul>
+                        <li><a href="home.html">Inicio</a></li>
+                        <li><a href="reportes.html">Reportes</a></li>
+                        <li><a href="adopcion.html">Adopción</a></li>
+                        <li><a href="soporte.html"
+                                class="active">Soporte</a></li>
+                        <li><a href="recursos.html">Recursos</a></li>
+                        <li><a href="chats.html">Chats</a></li>
+                        <li><a href="perfil.html">Perfil</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="soporte-container">
+            <h2 class="tituloSoporte">Soporte</h2>
+            <p class="parrafoT">Bienvenido a nuestra sección de soporte. Si tienes alguna duda o
+                problema con la plataforma, aquí encontrarás respuestas y
+                asistencia.</p>
+
+            <hr class="divisor">
+            <!-- Línea horizontal para dividir secciones -->
+
+            <section class="faq">
+                <h3>Preguntas Frecuentes (FAQ)</h3>
+                <table class="faq-table">
+                    <thead>
+                        <tr>
+                            <th>Pregunta</th>
+                            <th>Respuesta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>¿Cómo recupero mi
+                                    contraseña?</strong></td>
+                            <td>Ve a la pantalla de inicio de sesión y haz clic
+                                en "Olvidé mi contraseña". Luego
+                                ingresa tu correo y
+                                sigue las instrucciones
+                                enviadas.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>¿Cómo puedo adoptar una
+                                    mascota?</strong></td>
+                            <td>Ve a la sección Adopción y busca una mascota.
+                                Luego contacta al dueño o rescatista mediante el
+                                botón de "Solicitar Adopción".</td>
+                        </tr>
+                        <tr>
+                            <td><strong>¿Cómo reporto una mascota
+                                    perdida?</strong></td>
+                            <td>Accede a la sección de reportes y completa el
+                                formulario con los detalles de la mascota. Por
+                                ultimo, haz clic en "Enviar" para que se
+                                publique el reporte.</td>
+                            <tr>
+                                <td><strong>¿Cómo cambio mi información
+                                        personal?
+                                    </strong></td>
+                                <td>Desde tu Perfil, accede a la opción de
+                                    "Editar información" y actualiza los datos
+                                    que
+                                    necesites.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <hr class="divisor">
+                <!-- Línea horizontal para dividir secciones -->
+
+                <section class="contact-form">
+                    <h3>Formulario de Reporte (Problemas/Dudas)</h3>
+                    <form action="submit_form.php" method="post">
+                        <div class="form-group">
+                            <label for="name">Nombre:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Reporte:</label>
+                            <textarea id="message" name="message"
+                                required></textarea>
+                        </div>
+
+                        <button type="submit">Enviar</button>
+                    </form>
+                </section>
+
+                <hr class="divisor">
+                <!-- Línea horizontal para dividir secciones -->
+
+                <section class="soporteEmail">
+                    <h3>Correo de Soporte</h3>
+                    <p>Para asistencia inmediata envíanos un correo a <a
+                            href="mailto:soporte@pawfinder.com">soporte@pawfinder.com</a>.</p>
+                    <p class="diagonal">Incluye tu nombre y una descripción
+                        clara del problema para una mejor asistencia.</p>
+                </section>
+                <!-- <hr class="divisor">
+                Línea horizontal para dividir secciones
+
+                <section class="terms-privacy">
+                    <h3>Términos y Condiciones</h3>
+                    <p>Aquí puedes agregar la información sobre términos y
+                        condiciones.</p>
+                    <hr class="divisor">
+                     Línea horizontal para dividir secciones
+                    <h3>Política de Privacidad</h3>
+                    <p>Aquí puedes agregar la información sobre la política de
+                        privacidad.</p>
+                </section>
+            </div>-->
+
+                <!-- Bootstrap JS and dependencies -->
+            </body>
+        </html>
