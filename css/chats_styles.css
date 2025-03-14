@@ -16,6 +16,21 @@ body {
 h2 {
     color: #4CAF50;
 }
+
+.parrafoT {
+    font-size: 1.2em; /* Aumenta el tamaño de la fuente */
+    color: #333; /* Cambia el color del texto */
+    font-style: italic; /* Aplica estilo cursiva */
+    margin-bottom: 20px; /* Añade un margen inferior */
+    text-align: center; /* Centra el texto */
+}
+
+.chatsT {
+    font-size: 3em; /* Aumenta el tamaño de la fuente */
+    color: #4CAF50; /* Cambia el color del texto */
+    margin-bottom: 20px; /* Añade un margen inferior */
+    text-align: center; /* Centra el título */
+}
 /*jr*/
 .chat-container {
     max-width: 600px;
