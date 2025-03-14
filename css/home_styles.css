@@ -4,33 +4,150 @@ body {
     padding: 0;
 }
 
-.app-title {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.app-title .logo {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-}
-
-.app-title h1 {
-    color: #4CAF50;
-    font-size: 2.5em;
-    text-align: center;
-}
-
 .home-container {
     background-color: white;
     padding: 100px 20px 20px 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 98%;
     text-align: center;
 }
 
 h2 {
     color: #4CAF50;
+}
+
+.parrafoT {
+    font-size: 1.2em; /* Aumenta el tamaño de la fuente */
+    color: #333; /* Cambia el color del texto */
+    font-style: italic; /* Aplica estilo cursiva */
+    margin-bottom: 20px; /* Añade un margen inferior */
+    text-align: center; /* Centra el texto */
+    width: 80%; /* Ajusta el ancho del párrafo */
+    margin-left: auto; /* Centra el párrafo horizontalmente */
+    margin-right: auto; /* Centra el párrafo horizontalmente */
+}
+
+.homeT {
+    font-size: 3em; /* Aumenta el tamaño de la fuente */
+    color: #4CAF50; /* Cambia el color del texto */
+    margin-bottom: 20px; /* Añade un margen inferior */
+    text-align: center; /* Centra el título */
+}
+
+.divisor {
+    border-bottom: 1px solid #ddd;
+    margin: 40px 0; /* Aumenta el margen superior e inferior */
+    padding: 0; /* Elimina el padding */
+}
+
+.titulosH {
+    font-size: 1.5em; /* Aumenta el tamaño de la fuente */
+    color: #4CAF50; /* Cambia el color del texto */
+    font-weight: bold; /* Hace el texto más grueso */
+    text-align: center; /* Centra el texto */
+    margin-bottom: 20px; /* Añade un margen inferior */
+}
+
+.quick-access-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    padding-top: 10px;
+
+}
+
+.button-container {
+    text-align: center;
+}
+
+.button-box {
+    border: 1px solid #016d19;
+    padding: 10px;
+    border-radius: 10px;
+    width: 150px; /* Ajusta el tamaño según sea necesario */
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.button-image {
+    width: 100px; /* Ajusta el tamaño según sea necesario */
+    height: 100px; /* Ajusta el tamaño según sea necesario */
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: bold; /* Hace el texto más grueso */
+}
+
+.button:hover {
+    background-color: #016d19;
+}
+
+.impact-table {
+    width: 50%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 2px solid #016d19; /* Borde gris */
+}
+
+.impact-table th {
+    background-color: #4CAF50; /* Fondo verde */
+    color: white;
+    padding: 10px;
+    border: 1px solid #016d19; /* Borde gris */
+    text-align: center;
+}
+
+.impact-table td {
+    padding: 10px;
+    border: 1px solid #016d19; /* Borde gris */
+    text-align: left;
+}
+
+.impact-table tr:nth-child(odd) {
+    background-color: #e0f7e0; /* Tonalidad de verde claro */
+}
+
+.impact-table tr:nth-child(even) {
+    background-color: #c0e7c0; /* Tonalidad de verde más oscuro */
+}
+
+.testimonials {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 80%;
+}
+
+.testimonial {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-left: 5px solid #4CAF50;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.testimonial p {
+    margin: 0;
+    font-style: italic;
+    font-size: 1.1em;
+    color: #252525;
+}
+
+.testimonial .author {
+    text-align: right;
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
 }

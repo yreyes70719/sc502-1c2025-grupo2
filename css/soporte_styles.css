@@ -132,3 +132,11 @@ h2 {
     margin-bottom: 20px; /* Añade un margen inferior */
     text-align: center; /* Centra el texto */
 }
+
+.titulo-destacados {
+    font-size: 1.5em; /* Aumenta el tamaño de la fuente */
+    color: #4CAF50; /* Cambia el color del texto */
+    font-weight: bold; /* Hace el texto más grueso */
+    text-align: center; /* Centra el texto */
+    margin-bottom: 20px; /* Añade un margen inferior */
+}
