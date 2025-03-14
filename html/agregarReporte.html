@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Agregar Reporte</title>
+        <link rel="stylesheet" href="../css/reportes_styles.css">
+        <link rel="stylesheet" href="../css/navbar_styles.css">
+        <script src="../js/script.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="navbarPaw">
+                <img src="../images/Paw.png" alt="PawFinder Logo"
+                    class="logoPaw">
+                <h1>PawFinder</h1>
+                <nav>
+                    <ul>
+                        <li><a href="home.html">Inicio</a></li>
+                        <li><a href="reportes.html"
+                                class="active">Reportes</a></li>
+                        <li><a href="adopcion.html">Adopción</a></li>
+                        <li><a href="soporte.html">Soporte</a></li>
+                        <li><a href="recursos.html">Recursos</a></li>
+                        <li><a href="chats.html">Chats</a></li>
+                        <li><a href="perfil.html">Perfil</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="form-container">
+            <h2 class="reportesT">Agrega un Nuevo Reporte</h2>
+            <h3>¡Ayudemos a reunir familias!</h3>
+            <p class="parrafoT">Si has perdido o encontrado una mascota, publica
+                un reporte con los detalles para que la comunidad pueda
+                ayudarte.</p>
+            <form id="nuevo-reporte-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <label for="raza">Raza:</label>
+                <input type="text" id="raza" name="raza" required>
+                <label for="edad">Edad:</label>
+                <input type="text" id="edad" name="edad" required>
+                <label for="ubicacion">Ubicación:</label>
+                <input type="text" id="ubicacion" name="ubicacion" required>
+                <label for="numero">Número del Dueño:</label>
+                <input type="text" id="numero" name="numero" required>
+                <label for="detalles">Detalles:</label>
+                <textarea id="detalles" name="detalles" required></textarea>
+                <label for="estado">Estado:</label>
+                <select id="estado" name="estado" required>
+                    <option value="desaparecido">Desaparecido</option>
+                    <option value="encontrado">Encontrado</option>
+                </select>
+                <label for="imagen">Imagen:</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*" required>
+                <button type="submit">Agregar</button>
+                <button type="button" onclick="window.location.href='reportes.html'">Volver Atrás</button>
+            </form>
+        </div>
+        <script src="../js/agregarReporte.js"></script>
+    </body>
+</html>

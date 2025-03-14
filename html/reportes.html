@@ -1,55 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reportes</title>
-    <link rel="stylesheet" href="../css/reportes_styles.css">
-    <link rel="stylesheet" href="../css/navbar_styles.css">
-    <script src="../js/script.js"></script>
-</head>
-<body>
-    <header>
-        <div class="navbarPaw">
-            <img src="../images/Paw.png" alt="PawFinder Logo" class="logoPaw">
-            <h1>PawFinder</h1>
-            <nav>
-                <ul>
-                    <li><a href="home.html">Inicio</a></li>
-                    <li><a href="reportes.html" class="active">Reportes</a></li>
-                    <li><a href="adopcion.html">Adopción</a></li>
-                    <li><a href="soporte.html">Soporte</a></li>
-                    <li><a href="recursos.html">Recursos</a></li>
-                    <li><a href="chats.html">Chats</a></li>
-                    <li><a href="perfil.html">Perfil</a></li>
-                </ul>
-            </nav>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reportes</title>
+        <link rel="stylesheet" href="../css/reportes_styles.css">
+        <link rel="stylesheet" href="../css/navbar_styles.css">
+        <script src="../js/script.js"></script>
+        <script src="../js/agregarReporte.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="navbarPaw">
+                <img src="../images/Paw.png" alt="PawFinder Logo"
+                    class="logoPaw">
+                <h1>PawFinder</h1>
+                <nav>
+                    <ul>
+                        <li><a href="home.html">Inicio</a></li>
+                        <li><a href="reportes.html"
+                                class="active">Reportes</a></li>
+                        <li><a href="adopcion.html">Adopción</a></li>
+                        <li><a href="soporte.html">Soporte</a></li>
+                        <li><a href="recursos.html">Recursos</a></li>
+                        <li><a href="chats.html">Chats</a></li>
+                        <li><a href="perfil.html">Perfil</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="reportes-container">
+            <h2 class="reportesT">Reportes de Mascotas Perdidas y
+                Encontradas</h2>
+            <h3>¡Ayudemos a reunir familias!</h3>
+            <p class="parrafoT">Si has perdido o encontrado una mascota, publica
+                un reporte con los detalles para que la comunidad pueda
+                ayudarte.</p>
+
+            <a href="agregarReporte.html" class="button agregar-btn">Agregar
+                Nuevo Reporte</a>
+
+            <div class="reporte">
+                <img src="../images/Labrador.jpg" alt="Mascota 1"
+                    class="mascota-img-grande">
+                <div class="detalles">
+                    <p><strong>Nombre:</strong> Max</p>
+                    <p><strong>Raza:</strong> Labrador</p>
+                    <p><strong>Edad:</strong> 3 años</p>
+                    <p><strong>Ubicación:</strong> San José</p>
+                    <p><strong>Número del Dueño:</strong> <a
+                            href="tel:123456789">123456789</a></p>
+                    <p><strong>Detalles:</strong> Perdido cerca del parque
+                        central.</p>
+                    <p class="estado-desaparecido">Estado: Desaparecido</p>
+                    <!-- Estado Desaparecido -->
+                    <!-- <p class="estado-encontrado">Estado: Encontrado</p> -->
+                    <!-- Estado Encontrado -->
+                </div>
+                <div class="comentarios">
+                    <h4>Comentarios</h4>
+                    <div class="comentario">
+                        <p><strong>Usuario1:</strong> Vi a un perro similar en
+                            el parque.</p>
+                    </div>
+                    <div class="comentario">
+                        <p><strong>Usuario2:</strong> Espero que lo encuentres
+                            pronto.</p>
+                    </div>
+                    <textarea placeholder="Añadir un comentario..."></textarea>
+                    <button class="agregar-comentario-btn">Agregar
+                        Comentario</button>
+                </div>
+            </div>
+
+            <div class="reporte">
+                <img src="../images/beagle.avif" alt="Mascota 2"
+                    class="mascota-img-grande">
+                <div class="detalles">
+                    <p><strong>Nombre:</strong> Luna</p>
+                    <p><strong>Raza:</strong> Beagle</p>
+                    <p><strong>Edad:</strong> 2 años</p>
+                    <p><strong>Ubicación:</strong> Alajuela</p>
+                    <p><strong>Número del Dueño:</strong> <a
+                            href="tel:987654321">987654321</a></p>
+                    <p><strong>Detalles:</strong> Visto por última vez en el
+                        centro comercial.</p>
+                    <p class="estado-desaparecido">Estado: Desaparecido</p>
+                    <!-- Estado Desaparecido -->
+                    <!-- <p class="estado-encontrado">Estado: Encontrado</p> -->
+                    <!-- Estado Encontrado -->
+                </div>
+                <div class="comentarios">
+                    <h4>Comentarios</h4>
+                    <div class="comentario">
+                        <p><strong>Usuario1:</strong> Vi a un perro similar en
+                            el parque.</p>
+                    </div>
+                    <div class="comentario">
+                        <p><strong>Usuario2:</strong> Espero que lo encuentres
+                            pronto.</p>
+                    </div>
+                    <textarea placeholder="Añadir un comentario..."></textarea>
+                    <button class="agregar-comentario-btn">Agregar
+                        Comentario</button>
+                </div>
+            </div>
+
+            <!-- Agrega más divs con la clase "reporte" según sea necesario -->
         </div>
-    </header>
-    <div class="reportes-container">
-        <h2>Reportar Mascota Perdida</h2>
-        <form id="formReporte">
-            <label for="nombre">Nombre de la mascota:</label>
-            <input type="text" id="nombre" name="nombre" required>
-
-            <label for="raza">Raza:</label>
-            <input type="text" id="raza" name="raza">
-
-            <label for="edad">Edad:</label>
-            <input type="number" id="edad" name="edad">
-
-            <label for="foto">Foto:</label>
-            <input type="file" id="foto" name="foto" accept="image/*">
-
-            <label for="ubicacion">Ubicación:</label>
-            <input type="text" id="ubicacion" name="ubicacion" required>
-
-            <label for="detalles">Detalles adicionales:</label>
-            <textarea id="detalles" name="detalles"></textarea>
-
-            <button type="submit">Reportar</button>
-        </form>
-    </div>
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>

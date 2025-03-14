@@ -2,37 +2,13 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f8f9fa;
 }
 .container {
-    background: white;
-    padding: 20px;
+    background-color: white;
+    padding: 100px 20px 20px 20px;
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
-}
-
-.app-title {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.app-title .logo {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-}
-
-.app-title h1 {
-    color: #4CAF50;
-    font-size: 2.5em;
+    width: 98%;
     text-align: center;
 }
 
@@ -41,22 +17,25 @@ body {
     padding: 100px 20px 20px 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 98%;
     text-align: center;
 }
 
 h2 {
-    color: #4CAF50;¿
+    color: #4CAF50;
 }
+
 form {
     display: flex;
     flex-direction: column;
 }
+
 label {
     text-align: left;
     font-weight: bold;
     margin-top: 10px;
 }
+
 input, textarea {
     width: 100%;
     padding: 8px;
@@ -64,6 +43,7 @@ input, textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 button {
     padding: 10px;
     margin-top: 15px;
@@ -73,6 +53,229 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+
 button:hover {
     background-color: #0056b3;
+}
+
+.parrafoT {
+    font-size: 1.2em; /* Aumenta el tamaño de la fuente */
+    color: #333; /* Cambia el color del texto */
+    font-style: italic; /* Aplica estilo cursiva */
+    margin-bottom: 20px; /* Añade un margen inferior */
+    text-align: center; /* Centra el texto */
+}
+
+.reportesT {
+    font-size: 3em; /* Aumenta el tamaño de la fuente */
+    color: #4CAF50; /* Cambia el color del texto */
+    margin-bottom: 20px; /* Añade un margen inferior */
+    text-align: center; /* Centra el título */
+}
+
+.reportes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.reportes-table th, .reportes-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.reportes-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.mascota-img {
+    width: 300px;
+    height: auto;
+}
+
+.reporte {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.mascota-img-grande {
+    width: 250px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.detalles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    text-align: justify;
+    padding-left: 40px;
+    flex: 1;
+    padding-right: 20px;
+}
+
+.detalles p {
+    margin: 5px 0;
+    font-size: 1.1em; /* Aumenta el tamaño de la fuente */
+}
+
+.contactar-dueno-btn {
+    font-weight: bold;
+    padding: 13px;
+    margin-top: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: sticky;
+}
+
+.contactar-dueno-btn:hover {
+    background-color: #218838;
+}
+
+.estado-desaparecido {
+    color: red;
+    font-weight: bold;
+}
+
+.estado-encontrado {
+    color: green;
+    font-weight: bold;
+}
+
+.form-container {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    margin-top: 120px; /* Ajusta este valor según sea necesario */
+}
+
+.form-container h2, h3{
+    text-align: center;
+}
+
+.form-container label {
+    display: block;
+    margin-top: 10px;
+}
+
+.form-container input,
+.form-container textarea,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #45a049;
+}
+
+.form-container button[type="button"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #f44336; /* Color rojo */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Espacio entre los botones */
+}
+
+.form-container button[type="button"]:hover {
+    background-color: #d32f2f; /* Color rojo oscuro */
+}
+
+.agregar-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #4CAF50; /* Color verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.agregar-btn:hover {
+    background-color: #45a049; /* Color verde oscuro */
+}
+
+.comentarios {
+    flex: 1;
+    border-left: 1px solid #ddd;
+    padding-left: 20px;
+    text-align: justify;
+}
+
+.comentarios h4 {
+    margin-top: 0;
+}
+
+.comentario {
+    margin-bottom: 10px;
+}
+
+.comentarios textarea {
+    width: 87%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.agregar-comentario-btn {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: sticky;
+}
+
+.agregar-comentario-btn:hover {
+    background-color: #45a049;
+}
+
+.detalles a {
+    color: #28a745;
+    text-decoration: none;
+}
+
+.detalles a:hover {
+    text-decoration: underline;
 }
