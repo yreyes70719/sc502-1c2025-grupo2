@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Mascota Perdida</title>
+    <link rel="stylesheet" href="reportes_styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Reportar Mascota Perdida</h2>
+        <form id="formReporte">
+            <label for="nombre">Nombre de la mascota:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="raza">Raza:</label>
+            <input type="text" id="raza" name="raza">
+
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad">
+
+            <label for="foto">Foto:</label>
+            <input type="file" id="foto" name="foto" accept="image/*">
+
+            <label for="ubicacion">Ubicación:</label>
+            <input type="text" id="ubicacion" name="ubicacion" required>
+
+            <label for="detalles">Detalles adicionales:</label>
+            <textarea id="detalles" name="detalles"></textarea>
+
+            <button type="submit">Reportar</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
