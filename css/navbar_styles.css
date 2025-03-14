@@ -1,4 +1,4 @@
-.navbar {
+.navbarPaw {
     display: flex;
     align-items: center;
     background-color: #016d19;
@@ -9,22 +9,22 @@
     z-index: 1000;
 }
 
-.logo {
+.logoPaw {
     height: 40px;
     margin-right: 10px;
     padding-left: 20px; /* para que no se pegue al borde izquierdo */
 }
 
-.navbar h1 {
+.navbarPaw h1 {
     color: white;
     margin-right: auto;
 }
 
-.navbar nav {
+.navbarPaw nav {
     flex-grow: 1;
 }
 
-.navbar nav ul {
+.navbarPaw nav ul {
     list-style-type: none;
     margin: 0;
     padding-right: 30px; /* para que no se pegue al borde derecho */
@@ -32,22 +32,22 @@
     justify-content: flex-end;
 }
 
-.navbar nav ul li {
+.navbarPaw nav ul li {
     margin-left: 20px;
 }
 
-.navbar nav ul li a {
+.navbarPaw nav ul li a {
     color: white;
     text-decoration: none;
     padding: 8px 16px;
     transition: background-color 0.3s, border-bottom 0.3s;
 }
 
-.navbar nav ul li a:hover {
+.navbarPaw nav ul li a:hover {
     background-color: #575757;
     border-radius: 4px;
 }
 
-.navbar nav ul li a.active {
+.navbarPaw nav ul li a.active {
     border-bottom: 2px solid white;
 }
