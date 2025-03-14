@@ -40,10 +40,14 @@
     color: white;
     text-decoration: none;
     padding: 8px 16px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, border-bottom 0.3s;
 }
 
 .navbar nav ul li a:hover {
     background-color: #575757;
     border-radius: 4px;
+}
+
+.navbar nav ul li a.active {
+    border-bottom: 2px solid white;
 }
