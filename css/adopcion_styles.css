@@ -232,3 +232,12 @@ button:hover {
 .form-container button[type="button"]:hover {
     background-color: #d32f2f; /* Color rojo oscuro */
 }
+
+.contact-link {
+    color: green;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
