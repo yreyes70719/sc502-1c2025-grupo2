@@ -23,9 +23,6 @@ h2 {
     font-style: italic; /* Aplica estilo cursiva */
     margin-bottom: 20px; /* Añade un margen inferior */
     text-align: center; /* Centra el texto */
-    width: 80%; /* Ajusta el ancho del párrafo */
-    margin-left: auto; /* Centra el párrafo horizontalmente */
-    margin-right: auto; /* Centra el párrafo horizontalmente */
 }
 
 .homeT {
