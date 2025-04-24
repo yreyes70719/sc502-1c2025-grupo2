@@ -1,1 +1,1 @@
-<?php include './views/layout.php'; ?>
+<?php include './app/views/layout.php'; ?>

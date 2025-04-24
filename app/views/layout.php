@@ -1,13 +1,22 @@
-<!-- filepath: d:\Programs\xampp\htdocs\ProyectoAW\views\layout.php -->
 <?php
-    $currentPage = isset($_GET['page']) ? $_GET['page'] : 'home';
+session_start();
+$currentPage = isset($_GET['page']) ? $_GET['page'] : 'home';
 
-    // Páginas que deben ignorar el layout
-    $excludeLayout = ['register', 'login'];
+// Páginas protegidas que requieren sesión activa
+$protectedPages = ['perfil', 'chats', 'reportes', 'adopcion'];
 
-    if (!in_array($currentPage, $excludeLayout)) :
+// Si el usuario intenta acceder a una página protegida sin sesión, redirigir al login
+if (in_array($currentPage, $protectedPages) && !isset($_SESSION['id_usuario'])) {
+    header("Location: ?page=login");
+    exit;
+}
+
+// Páginas que deben ignorar el layout
+$excludeLayout = ['register', 'login'];
+
+if (!in_array($currentPage, $excludeLayout)) :
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
     <head>
         <meta charset="UTF-8">
@@ -33,6 +42,20 @@
                         <li><a href="?page=recursos" class="<?= $currentPage === 'recursos' ? 'active' : '' ?>">Recursos</a></li>
                         <li><a href="?page=chats" class="<?= $currentPage === 'chats' ? 'active' : '' ?>">Chats</a></li>
                         <li><a href="?page=perfil" class="<?= $currentPage === 'perfil' ? 'active' : '' ?>">Perfil</a></li>
+                        
+                        <!-- Opciones de sesión -->
+                        <li class="session-box">
+                            <?php if (isset($_SESSION['id_usuario'])): ?>
+                                <div class="session-info">
+                                    <span>Bienvenido, <?= htmlspecialchars($_SESSION['nombre_usuario']); ?></span>
+                                    <a href="app/controllers/LogoutController.php" class="logout-btn">Cerrar Sesión</a>
+                                </div>
+                            <?php else: ?>
+                                <div class="session-info">
+                                    <a href="?page=login" class="login-btn">Iniciar Sesión</a>
+                                </div>
+                            <?php endif; ?>
+                        </li>
                     </ul>
                 </nav>
             </div>

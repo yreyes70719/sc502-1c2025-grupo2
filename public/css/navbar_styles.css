@@ -82,4 +82,50 @@
 
 .footer p:hover {
     color: #c0c0c0; /* Color más claro al pasar el mouse */
+} 
+
+
+/* Estilos para las opciones de sesión */
+.session-box {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.session-info {
+
+    gap: 10px;
+}
+
+.login-btn, .logout-btn {
+    background-color: #53c970;
+    color: #016d19;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-left: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    border: 2px solid #016d19;
+
+    /* Restablecer estilos predeterminados */
+    outline: none; /* Elimina el contorno predeterminado */
+    box-shadow: none; /* Elimina sombras predeterminadas */
+    appearance: none; /* Elimina estilos específicos del navegador */
+    background-clip: padding-box; /* Asegura que el fondo no se desborde */
+}
+
+.login-btn:hover, .logout-btn:hover {
+    background-color: #016d19;
+    color: #ffffff;
+    text-decoration: none; /* Asegura que no aparezca subrayado */
+    outline: none; /* Elimina el contorno predeterminado */
+    box-shadow: none; /* Elimina sombras predeterminadas */
+    appearance: none; /* Elimina estilos específicos del navegador */
+}
+
+.session-info span {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
 }
