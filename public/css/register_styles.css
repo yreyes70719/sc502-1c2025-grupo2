@@ -86,3 +86,19 @@ a {
 a:hover {
     text-decoration: underline;
 }
+.volver-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Color verde */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.volver-btn:hover {
+    background-color: #45a049; /* Color verde oscuro */
+    text-decoration: none;
+}

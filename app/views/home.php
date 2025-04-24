@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="public/css/home_styles.css">
+<link rel="stylesheet" href="public/css/home_styles.css?v=<?= time() ?>">
 <div class="home-container">
     <h2 class="homeT">Bienvenido a PawFinder</h2>
     <p class="parrafoT">¡Bienvenido a PawFinder! La plataforma que te

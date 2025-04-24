@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="public/css/reportes_styles.css">
+<link rel="stylesheet" href="public/css/reportes_styles.css?v=<?= time() ?>">
 
 <div class="form-container">
     <h2 class="reportesT">Agrega un Nuevo Reporte</h2>

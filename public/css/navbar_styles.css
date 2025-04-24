@@ -41,11 +41,12 @@
     text-decoration: none;
     padding: 8px 16px;
     transition: background-color 0.3s, border-bottom 0.3s;
+    border-radius: 10px;
 }
 
 .navbarPaw nav ul li a:hover {
-    background-color: #575757;
-    border-radius: 4px;
+    background-color: #53c970;
+    border-radius: 10px;
 }
 
 .navbarPaw nav ul li a.active {
@@ -116,8 +117,9 @@
 }
 
 .login-btn:hover, .logout-btn:hover {
-    background-color: #016d19;
+    background-color: #02831e !important;
     color: #ffffff;
+    border-radius: 10px !important;
     text-decoration: none; /* Asegura que no aparezca subrayado */
     outline: none; /* Elimina el contorno predeterminado */
     box-shadow: none; /* Elimina sombras predeterminadas */
@@ -129,3 +131,4 @@
     font-size: 16px;
     font-weight: bold;
 }
+

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="public/css/reportes_styles.css">
+<link rel="stylesheet" href="public/css/reportes_styles.css?v=<?= time() ?>">
 
 <div class="reportes-container">
     <h2 class="reportesT">Reportes de Mascotas Perdidas y Encontradas</h2>

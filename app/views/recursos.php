@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="public/css/recursos_styles.css">
+<link rel="stylesheet" href="public/css/recursos_styles.css?v=<?= time() ?>">
 
 <div class="recursos-container">
     <h2 class="recursosT">Recursos</h2>

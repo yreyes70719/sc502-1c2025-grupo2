@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="public/css/soporte_styles.css">
+<link rel="stylesheet" href="public/css/soporte_styles.css?v=<?= time() ?>">
 
 <div class="soporte-container">
     <h2 class="tituloSoporte">Soporte</h2>

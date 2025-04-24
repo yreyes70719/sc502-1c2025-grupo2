@@ -101,3 +101,34 @@ h2 {
     border-radius: 50%;
     object-fit: cover;
 }
+
+.foto-perfil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 150px; /* Asegura que el contenedor tenga la misma altura que la imagen */
+}
+
+.foto-placeholder {
+    width: 150px;
+    height: 150px;
+    border: 2px dashed #ccc; /* Borde punteado */
+    border-radius: 50%; /* Forma circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: transparent;
+    cursor: pointer;
+    text-align: center; /* Centra el texto dentro del placeholder */
+    background-color: transparent; /* Fondo transparente */
+}
+
+.foto-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Forma circular */
+    object-fit: cover; /* Ajusta la imagen dentro del contenedor */
+    border: 2px solid #ccc; /* Borde sólido para la imagen */
+}

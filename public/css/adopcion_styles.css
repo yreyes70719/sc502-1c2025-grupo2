@@ -9,7 +9,7 @@ body {
     background-color: white;
     padding: 100px 20px 20px 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     width: 98%;
     text-align: center;
 }
@@ -40,10 +40,12 @@ body {
 }
 
 .mascota-img-grande {
-    width: 250px;
-    height: auto;
-    margin-right: 20px;
-    border-radius: 10px;
+    max-width: 220px; /* La imagen no será más ancha que su contenedor */
+    max-height: 220px; /* Altura máxima de la imagen */
+    object-fit: cover; /* Ajusta la imagen para que se recorte si es necesario */
+    border-radius: 10px; /* Opcional: bordes redondeados */
+    margin: 10px auto; /* Centra la imagen horizontalmente */
+    display: block; /* Asegura que se comporte como un bloque */
 }
 
 .detalles {
@@ -177,6 +179,7 @@ button:hover {
 .form-container {
     width: 50%;
     margin: auto;
+    margin-bottom: 20px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -196,7 +199,7 @@ button:hover {
 .form-container input,
 .form-container textarea,
 .form-container select {
-    width: 100%;
+    width: 97%;
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 20px;
@@ -240,4 +243,5 @@ button:hover {
 
 .contact-link:hover {
     text-decoration: underline;
-}
+} 
+

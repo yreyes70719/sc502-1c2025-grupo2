@@ -23,9 +23,9 @@ if (!in_array($currentPage, $excludeLayout)) :
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Página Principal</title>
         <!-- Estilos generales -->
-        <link rel="stylesheet" href="public/css/navbar_styles.css">
-        <link rel="stylesheet" href="public/css/home_styles.css">
-
+        <link rel="stylesheet" href="public/css/navbar_styles.css?v=<?= time() ?>">
+        <link rel="stylesheet" href="public/css/home_styles.css?v=<?= time() ?>">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="public/js/script.js"></script>
     </head>
     <body>
@@ -81,6 +81,19 @@ if (!in_array($currentPage, $excludeLayout)) :
         <footer class="footer">
             <p>&copy; PawFinder 2025. Todos los derechos reservados.</p>
         </footer>
+
+        
     </body>
 </html>
+<?php endif; ?><?php if (isset($_SESSION['success_message'])): ?>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: '¡Éxito!',
+            text: '<?= htmlspecialchars($_SESSION['success_message']) ?>',
+            showConfirmButton: false,
+            timer: 2000
+        });
+    </script>
+    <?php unset($_SESSION['success_message']); // Eliminar el mensaje después de mostrarlo ?>
 <?php endif; ?>

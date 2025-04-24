@@ -6,7 +6,10 @@ $database = "PawFinderBD";
 
 try {
     $conn = new mysqli($host, $user, $password, $database);
-
-} catch (mysqli_sql_exception $e) {
-    die("Error de conexión: " . $e->getMessage());
+    if ($conn->connect_error) {
+        throw new Exception("Error de conexión: " . $conn->connect_error);
+    }
+} catch (Exception $e) {
+    die($e->getMessage());
 }
+?>

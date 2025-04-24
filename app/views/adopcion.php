@@ -1,4 +1,28 @@
-<link rel="stylesheet" href="public/css/adopcion_styles.css">
+<?php
+session_start();
+if (isset($_SESSION['success_message'])) {
+    echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                title: '¡Éxito!',
+                text: '" . $_SESSION['success_message'] . "',
+                icon: 'success',
+                confirmButtonText: 'Aceptar',
+                confirmButtonColor: '#4CAF50'
+            });
+        });
+    </script>";
+    unset($_SESSION['success_message']); // Eliminar el mensaje después de mostrarlo
+}
+?>
+
+<?php
+// Obtener las adopciones desde el controlador
+$url = 'http://localhost/ProyectoAW/app/controllers/AdopcionController.php';
+$adopciones = json_decode(file_get_contents($url), true);
+?>
+
+<link rel="stylesheet" href="public/css/adopcion_styles.css?v=<?= time() ?>">
 <div class="adopcion-container">
     <h2 class="adopcionT">Adopciones: Encuentra un Nuevo Amigo</h2>
     <h3>¡Dale un hogar a quien más lo necesita!</h3>
@@ -6,57 +30,32 @@
         ayúdanos a darles una segunda oportunidad.</p>
 
     <a href="?page=agregarAdopcion" class="button agregar-btn">Agregar Nueva Adopción</a>
-    <div class="reporte">
-        <img src="public/images/perro.jpg" alt="Perro en adopción"
-            class="mascota-img-grande">
-        <div class="detalles">
-            <p><strong>Nombre:</strong> Max</p>
-            <p><strong>Raza:</strong> Chihuahua</p>
-            <p><strong>Edad:</strong> 3 años</p>
-            <p><strong>Tipo:</strong> Perro</p>
-            <p><strong>Estado de salud:</strong> Bueno</p>
-            <p><strong>Descripción:</strong> Amigable y juguetón.</p>
-            <p>Si está interesado en adoptar <a href="contacto.html" class="contact-link">pulse aquí</a>.</p>
-        </div>
-        <div class="comentarios">
-            <h4>Comentarios</h4>
-            <div class="comentario">
-                <p><strong>Usuario1:</strong> Me interesa adoptar a
-                    Max.</p>
-            </div>
-            <div class="comentario">
-                <p><strong>Usuario2:</strong> ¿Sigue disponible?</p>
-            </div>
-            <textarea placeholder="Añadir un comentario..."></textarea>
-            <button class="agregar-comentario-btn">Agregar
-                Comentario</button>
-        </div>
-    </div>
 
-    <div class="reporte">
-        <img src="public/images/gato.jpg" alt="Gato en adopción"
-            class="mascota-img-grande">
-        <div class="detalles">
-            <p><strong>Nombre:</strong> Luna</p>
-            <p><strong>Raza:</strong> British Shorthair</p>
-            <p><strong>Edad:</strong> 2 años</p>
-            <p><strong>Tipo:</strong> Gato</p>
-            <p><strong>Estado de salud:</strong> Excelente</p>
-            <p><strong>Descripción:</strong> Cariñosa y tranquila.</p>
-            <p>Si está interesado en adoptar <a href="contacto.html" class="contact-link">pulse aquí</a>.</p>
-        </div>
-        <div class="comentarios">
-            <h4>Comentarios</h4>
-            <div class="comentario">
-                <p><strong>Usuario1:</strong> Me gustaría conocer a
-                    Luna.</p>
+    <?php if (!empty($adopciones)): ?>
+        <?php foreach ($adopciones as $adopcion): ?>
+            <div class="reporte">
+                <img src="public/uploads/<?= htmlspecialchars($adopcion['foto']) ?>" alt="<?= htmlspecialchars($adopcion['nombre_mascota']) ?>" class="mascota-img-grande">
+                <div class="detalles">
+                    <p><strong>Nombre:</strong> <?= htmlspecialchars($adopcion['nombre_mascota']) ?></p>
+                    <p><strong>Raza:</strong> <?= htmlspecialchars($adopcion['tipo']) ?></p>
+                    <p><strong>Edad:</strong> <?= htmlspecialchars($adopcion['edad']) ?> años</p>
+                    <p><strong>Tipo:</strong> <?= htmlspecialchars($adopcion['tipo']) ?></p>
+                    <p><strong>Estado de salud:</strong> <?= htmlspecialchars($adopcion['estado_salud']) ?></p>
+                    <p><strong>Descripción:</strong> <?= htmlspecialchars($adopcion['descripcion']) ?></p>
+                    <p>Si está interesado en adoptar <a href="contacto.html" class="contact-link">pulse aquí</a>.</p>
+                </div>
+                <div class="comentarios">
+                    <h4>Comentarios</h4>
+                    <ul class="comentarios-list" id="comentarios-<?= $adopcion['id_adopcion'] ?>">
+                        <!-- Los comentarios se cargarán dinámicamente con JavaScript -->
+                    </ul>
+                    <textarea class="comentario-textarea" data-id="<?= $adopcion['id_adopcion'] ?>" placeholder="Añadir un comentario..."></textarea>
+                    <button class="agregar-comentario-btn" data-id="<?= $adopcion['id_adopcion'] ?>">Agregar Comentario</button>
+                </div>
             </div>
-            <div class="comentario">
-                <p><strong>Usuario2:</strong> ¿Está vacunada?</p>
-            </div>
-            <textarea placeholder="Añadir un comentario..."></textarea>
-            <button class="agregar-comentario-btn">Agregar
-                Comentario</button>
-        </div>
-    </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>No hay mascotas disponibles para adopción en este momento.</p>
+    <?php endif; ?>
+    <script src="public/js/adopcion_script.js"></script>
 </div>

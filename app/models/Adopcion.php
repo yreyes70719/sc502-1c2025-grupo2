@@ -60,5 +60,38 @@ class Adopcion
             return 0;
         }
     }
+
+    public static function agregarComentario($id_adopcion, $id_usuario, $comentario)
+    {
+        global $conn;
+
+        $sql = "INSERT INTO ComentariosAdopcion (id_adopcion, id_usuario, comentario) 
+                VALUES ($id_adopcion, $id_usuario, '$comentario')";
+
+        if ($conn->query($sql) === TRUE) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public static function obtenerComentarios($id_adopcion): array
+    {
+        global $conn;
+
+        $sql = "SELECT c.comentario, c.fecha, u.nombre_usuario 
+                FROM ComentariosAdopcion c 
+                JOIN Usuarios u ON c.id_usuario = u.id_usuario 
+                WHERE c.id_adopcion = $id_adopcion 
+                ORDER BY c.fecha DESC";
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return [];
+        }
+    }
 }
 ?>

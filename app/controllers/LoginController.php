@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $contraseña = $_POST['contraseña'] ?? '';
 
     if (!empty($correo) && !empty($contraseña)) {
-        $sql = "SELECT * FROM Usuarios WHERE correo = ?";
+        $sql = "SELECT * FROM Usuarios WHERE correo = ?"; 
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $correo);
         $stmt->execute();
@@ -17,32 +17,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $usuario = $result->fetch_assoc();
 
             // Verificar la contraseña
-            if ($contraseña === $usuario['contraseña']) { // Cambiar a password_verify si usas hash
+            if (password_verify($contraseña, $usuario['contraseña'])) { // Verifica la contraseña con el hash
                 $_SESSION['id_usuario'] = $usuario['id_usuario'];
                 $_SESSION['nombre_usuario'] = $usuario['nombre_usuario'];
                 $_SESSION['rol'] = $usuario['rol'];
 
-                // Redirigir según el rol
-                if ($usuario['rol'] === 'Administrador') {
-                    header("Location: http://localhost/ProyectoAW/?page=home"); //cambiar para el admin
-                } else {
-                    header("Location: http://localhost/ProyectoAW/?page=home");
-                }
+                // Establecer mensaje de éxito
+                $_SESSION['success_message'] = "Bienvenido, {$usuario['nombre_usuario']}!";
+
+                // Redirigir al home
+                header("Location: http://localhost/ProyectoAW/?page=home");
                 exit;
             } else {
-                $error = "Contraseña incorrecta.";
+                // Contraseña incorrecta
+                echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+                echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Contraseña incorrecta.',
+                        confirmButtonText: 'Intentar de nuevo'
+                    }).then(() => {
+                        window.location.href = 'http://localhost/ProyectoAW/?page=login';
+                    });
+                </script>";
+                exit;
             }
         } else {
-            $error = "No se encontró una cuenta con ese correo.";
+            // Usuario no encontrado
+            echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+            echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'No se encontró una cuenta con ese correo.',
+                    confirmButtonText: 'Intentar de nuevo'
+                }).then(() => {
+                    window.location.href = 'http://localhost/ProyectoAW/?page=login';
+                });
+                </script>";
+            exit;
         }
     } else {
-        $error = "Por favor, completa todos los campos.";
+        // Campos vacíos
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        echo "<script>
+            Swal.fire({
+                icon: 'warning',
+                title: 'Advertencia',
+                text: 'Por favor, completa todos los campos.',
+                confirmButtonText: 'Volver'
+            }).then(() => {
+                window.location.href = 'http://localhost/ProyectoAW/?page=login';
+            });
+        </script>";
+        exit;
     }
-}
-
-// Mostrar el error si existe
-if (isset($error)) {
-    echo "<script>alert('$error'); window.location.href='http://localhost/ProyectoAW/?page=login';</script>";
-    exit;
 }
 ?>

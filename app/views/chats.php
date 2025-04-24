@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="public/css/chats_styles.css">
+<link rel="stylesheet" href="public/css/chats_styles.css?v=<?= time() ?>">
 
 <div class="chats-container">
     <h2 class="chatsT">Chats</h2>
