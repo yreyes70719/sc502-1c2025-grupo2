@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="public/css/adopcion_styles.css">
+
+<div class="form-container">
+    <h2 class="adopcionT">Publicar Mascota en Adopción</h2>
+    <h3>¡Dale un hogar a quien más lo necesita!</h3>
+    <p class="parrafoT">Publica una mascota en adopción con los detalles para que la comunidad pueda ayudar a encontrarle un hogar.</p>
+    <form id="formAdopcion">
+        <label for="nombre">Nombre de la mascota:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="tipo">Tipo (Perro, Gato, etc.):</label>
+        <input type="text" id="tipo" name="tipo" required>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad">
+
+        <label for="estado">Estado de salud:</label>
+        <input type="text" id="estado" name="estado">
+
+        <label for="foto">Foto:</label>
+        <input type="file" id="foto" name="foto" accept="image/*">
+
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion"></textarea>
+
+        <button type="submit">Publicar</button>
+        <button type="button" onclick="window.location.href='?page=adopcion'">Volver Atrás</button>
+    </form>
+</div>
