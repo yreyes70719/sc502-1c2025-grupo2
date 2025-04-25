@@ -25,7 +25,7 @@ unset($_SESSION['error_message']); // Limpiar el mensaje después de mostrarlo
         <button type="submit">Iniciar Sesión</button>
     </form>
     <p>¿No tienes una cuenta? <a href="?page=register">Regístrate aquí</a></p>
-    <p><a href="?page=forgot_password">¿Olvidaste tu contraseña?</a></p>
+    <p><a href="?page=login">¿Olvidaste tu contraseña?</a></p>
     <hr>
     <p><a href="?page=home" class="volver-btn">Volver al Inicio</a></p>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
