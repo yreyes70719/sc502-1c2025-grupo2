@@ -2,6 +2,9 @@
 <script src="public/js/perfil_script.js?v=<?= time() ?>" defer></script>
 
 <div class="perfil-container">
+    <!-- Título principal -->
+    <h1 class="perfilT">Perfil de Usuario</h1>
+
     <div class="profile-container">
         <!-- Espacio para la foto de perfil -->
         <div class="foto-perfil-container">
@@ -16,8 +19,6 @@
             <label for="foto">Subir nueva foto de perfil:</label>
             <input type="file" id="foto" name="foto" accept="image/*">
         </div>
-
-        <h1 class="perfilT">Perfil de Usuario</h1>
 
         <form id="perfil-form">
             <div class="form-group">

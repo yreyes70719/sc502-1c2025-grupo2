@@ -1,24 +1,23 @@
 <?php
 require_once '../../config/database.php';
 
-class Adopcion
+class Reporte
 {
     public static function getAll(): array
     {
         global $conn;
 
         try {
-            // Modificar la consulta para incluir el correo del usuario
             $sql = "
                 SELECT 
-                    a.*, 
+                    r.*, 
                     u.correo AS correo_usuario 
                 FROM 
-                    Adopciones a 
+                    Reportes r
                 JOIN 
                     Usuarios u 
                 ON 
-                    a.id_usuario = u.id_usuario
+                    r.id_usuario = u.id_usuario
             ";
             $result = $conn->query($sql);
 
@@ -28,16 +27,16 @@ class Adopcion
                 return [];
             }
         } catch (mysqli_sql_exception $e) {
-            return ["error" => "Error al obtener adopciones: " . $e->getMessage()];
+            return ["error" => "Error al obtener reportes: " . $e->getMessage()];
         }
     }
 
-    public static function add($nombre_mascota, $tipo, $edad, $estado_salud, $foto, $descripcion, $id_usuario)
+    public static function add($nombre_mascota, $raza, $edad, $ubicacion, $numero_dueno, $detalles, $estado, $imagen, $id_usuario)
     {
         global $conn;
 
-        $sql = "INSERT INTO Adopciones (nombre_mascota, tipo, edad, estado_salud, foto, descripcion, id_usuario) 
-                VALUES ('$nombre_mascota', '$tipo', $edad, '$estado_salud', '$foto', '$descripcion', $id_usuario)";
+        $sql = "INSERT INTO Reportes (nombre_mascota, raza, edad, ubicacion, numero_dueno, detalles, estado, imagen, id_usuario) 
+                VALUES ('$nombre_mascota', '$raza', $edad, '$ubicacion', '$numero_dueno', '$detalles', '$estado', '$imagen', $id_usuario)";
 
         if ($conn->query($sql) === TRUE) {
             return 1;
@@ -46,11 +45,11 @@ class Adopcion
         }
     }
 
-    public static function delete($id_adopcion)
+    public static function delete($id_reporte)
     {
         global $conn;
 
-        $sql = "DELETE FROM Adopciones WHERE id_adopcion = $id_adopcion";
+        $sql = "DELETE FROM Reportes WHERE id_reporte = $id_reporte";
 
         if ($conn->query($sql) === TRUE) {
             return 1;
@@ -59,11 +58,11 @@ class Adopcion
         }
     }
 
-    public static function updateEstado($id_adopcion, $estado)
+    public static function updateStatus($id_reporte, $estado)
     {
         global $conn;
 
-        $sql = "UPDATE Adopciones SET estado = '$estado' WHERE id_adopcion = $id_adopcion";
+        $sql = "UPDATE Reportes SET estado = '$estado' WHERE id_reporte = $id_reporte";
 
         if ($conn->query($sql) === TRUE) {
             return 1;
@@ -72,12 +71,12 @@ class Adopcion
         }
     }
 
-    public static function agregarComentario($id_adopcion, $id_usuario, $comentario)
+    public static function agregarComentario($id_reporte, $id_usuario, $comentario)
     {
         global $conn;
 
-        $sql = "INSERT INTO ComentariosAdopcion (id_adopcion, id_usuario, comentario) 
-                VALUES ($id_adopcion, $id_usuario, '$comentario')";
+        $sql = "INSERT INTO ComentariosReportes (id_reporte, id_usuario, comentario) 
+                VALUES ($id_reporte, $id_usuario, '$comentario')";
 
         if ($conn->query($sql) === TRUE) {
             return 1;
@@ -86,14 +85,14 @@ class Adopcion
         }
     }
 
-    public static function obtenerComentarios($id_adopcion): array
+    public static function obtenerComentarios($id_reporte): array
     {
         global $conn;
 
         $sql = "SELECT c.comentario, c.fecha, u.nombre_usuario 
-                FROM ComentariosAdopcion c 
+                FROM ComentariosReportes c 
                 JOIN Usuarios u ON c.id_usuario = u.id_usuario 
-                WHERE c.id_adopcion = $id_adopcion 
+                WHERE c.id_reporte = $id_reporte 
                 ORDER BY c.fecha DESC";
 
         $result = $conn->query($sql);

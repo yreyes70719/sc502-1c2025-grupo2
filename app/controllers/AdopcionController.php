@@ -30,43 +30,26 @@ try {
             }
         }
 
-        // Manejar la acción de agregar una adopción
-        if ($action === 'add') {
-            // Validar que el usuario esté logueado
-            if (!isset($_SESSION['id_usuario'])) {
-                throw new Exception("No tienes permiso para realizar esta acción.");
-            }
+        // Manejar la acción de cambiar el estado de la adopción
+        if ($action === 'updateStatus' && isset($_POST['id_adopcion'], $_POST['estado'])) {
+            $id_adopcion = intval($_POST['id_adopcion']);
+            $estado = $_POST['estado'];
 
-            // Obtener los datos del formulario
-            $nombre_mascota = $_POST['nombre_mascota'] ?? '';
-            $tipo = $_POST['tipo'] ?? '';
-            $edad = intval($_POST['edad'] ?? 0); 
-            $estado_salud = $_POST['estado_salud'] ?? '';
-            $descripcion = $_POST['descripcion'] ?? '';
-            $id_usuario = intval($_SESSION['id_usuario']);
-
-            // Manejar la subida de la foto
-            if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
-                $fotoTmp = $_FILES['foto']['tmp_name'];
-                $fotoNombre = basename($_FILES['foto']['name']);
-                $fotoDestino = "../../public/uploads/" . $fotoNombre;
-
-                if (!move_uploaded_file($fotoTmp, $fotoDestino)) {
-                    throw new Exception("Error al subir la foto.");
-                }
+            if (Adopcion::updateEstado($id_adopcion, $estado)) {
+                echo json_encode(["success" => true, "message" => "Estado actualizado correctamente."]);
             } else {
-                throw new Exception("La foto es obligatoria.");
+                throw new Exception("Error al actualizar el estado de la adopción.");
             }
+        }
 
-            // Guardar la adopción en la base de datos
-            if (Adopcion::add($nombre_mascota, $tipo, $edad, $estado_salud, $fotoNombre, $descripcion, $id_usuario)) {
-                // Establecer un mensaje de éxito en la sesión
-                $_SESSION['success_message'] = "¡La adopción se publicó con éxito!";
-                // Redirigir al sistema de enrutamiento para cargar la página con el layout
-                header("Location: ../../index.php?page=adopcion");
-                exit;
+        // Manejar la acción de eliminar una adopción
+        if ($action === 'delete' && isset($_POST['id_adopcion'])) {
+            $id_adopcion = intval($_POST['id_adopcion']);
+
+            if (Adopcion::delete($id_adopcion)) {
+                echo json_encode(["success" => true, "message" => "Adopción eliminada correctamente."]);
             } else {
-                throw new Exception("Error al guardar la adopción.");
+                throw new Exception("Error al eliminar la adopción.");
             }
         }
     } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {

@@ -52,6 +52,16 @@ $adopciones = json_decode(file_get_contents($url), true);
                             pulse aquí
                         </a>.
                     </p>
+                    <div class="button-group">
+                        <!-- Botón para cambiar el estado -->
+                        <button class="button cambiar-estado-btn <?= $adopcion['estado'] === 'Disponible' ? 'btn-adoptado' : 'btn-disponible' ?>" 
+                                data-id="<?= $adopcion['id_adopcion'] ?>" 
+                                data-estado="<?= $adopcion['estado'] === 'Disponible' ? 'Adoptado' : 'Disponible' ?>">
+                            <?= $adopcion['estado'] === 'Disponible' ? 'Marcar como Adoptado' : 'Marcar como Disponible' ?>
+                        </button>
+                        <!-- Botón para eliminar la adopción -->
+                        <button class="button eliminar-btn" data-id="<?= $adopcion['id_adopcion'] ?>">Eliminar</button>
+                    </div>
                 </div>
                 <div class="comentarios">
                     <h4>Comentarios</h4>

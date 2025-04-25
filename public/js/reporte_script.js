@@ -1,11 +1,11 @@
 // Función para obtener comentarios desde el controlador
-async function obtenerComentarios(idAdopcion) {
+async function obtenerComentarios(idReporte) {
     try {
-        const response = await fetch(`/ProyectoAW/app/controllers/AdopcionController.php?id_adopcion=${idAdopcion}`);
+        const response = await fetch(`/ProyectoAW/app/controllers/ReportesController.php?id_reporte=${idReporte}`);
         if (response.ok) {
             return await response.json();
         } else {
-            console.error(`Error al obtener comentarios para la adopción ${idAdopcion}: ${response.status}`);
+            console.error(`Error al obtener comentarios para el reporte ${idReporte}: ${response.status}`);
             return [];
         }
     } catch (error) {
@@ -17,18 +17,18 @@ async function obtenerComentarios(idAdopcion) {
 // Manejar el evento de clic en los botones de agregar comentario
 document.querySelectorAll('.agregar-comentario-btn').forEach(button => {
     button.addEventListener('click', async function () {
-        const idAdopcion = this.getAttribute('data-id'); // Obtener el ID de la adopción
-        const textarea = document.querySelector(`.comentario-textarea[data-id="${idAdopcion}"]`);
+        const idReporte = this.getAttribute('data-id'); // Obtener el ID del reporte
+        const textarea = document.querySelector(`.comentario-textarea[data-id="${idReporte}"]`);
         const comentario = textarea.value.trim(); // Obtener el comentario del usuario
 
         if (comentario) {
             const formData = new FormData();
             formData.append('action', 'addComment');
-            formData.append('id_adopcion', idAdopcion);
+            formData.append('id_reporte', idReporte);
             formData.append('comentario', comentario);
 
             try {
-                const response = await fetch('/ProyectoAW/app/controllers/AdopcionController.php', {
+                const response = await fetch('/ProyectoAW/app/controllers/ReportesController.php', {
                     method: 'POST',
                     body: formData
                 });
@@ -37,7 +37,7 @@ document.querySelectorAll('.agregar-comentario-btn').forEach(button => {
 
                 if (result.success) {
                     // Agregar el nuevo comentario a la lista de comentarios
-                    const comentariosList = document.getElementById(`comentarios-${idAdopcion}`);
+                    const comentariosList = document.getElementById(`comentarios-${idReporte}`);
                     const nuevoComentario = document.createElement('li');
                     nuevoComentario.innerHTML = `<strong>Tú:</strong> ${comentario} (Ahora)`;
                     comentariosList.prepend(nuevoComentario);
@@ -80,19 +80,19 @@ document.querySelectorAll('.agregar-comentario-btn').forEach(button => {
     });
 });
 
-// Función para cambiar el estado de la adopción
+// Función para cambiar el estado del reporte
 document.querySelectorAll('.cambiar-estado-btn').forEach(button => {
     button.addEventListener('click', async function () {
-        const idAdopcion = this.getAttribute('data-id');
+        const idReporte = this.getAttribute('data-id');
         const nuevoEstado = this.getAttribute('data-estado');
 
         const formData = new FormData();
         formData.append('action', 'updateStatus');
-        formData.append('id_adopcion', idAdopcion);
+        formData.append('id_reporte', idReporte);
         formData.append('estado', nuevoEstado);
 
         try {
-            const response = await fetch('/ProyectoAW/app/controllers/AdopcionController.php', {
+            const response = await fetch('/ProyectoAW/app/controllers/ReportesController.php', {
                 method: 'POST',
                 body: formData
             });
@@ -102,7 +102,7 @@ document.querySelectorAll('.cambiar-estado-btn').forEach(button => {
             if (result.success) {
                 Swal.fire({
                     title: '¡Éxito!',
-                    text: 'El estado de la adopción se actualizó correctamente.',
+                    text: 'El estado del reporte se actualizó correctamente.',
                     icon: 'success',
                     confirmButtonText: 'Aceptar'
                 }).then(() => {
@@ -128,14 +128,14 @@ document.querySelectorAll('.cambiar-estado-btn').forEach(button => {
     });
 });
 
-// Función para eliminar una adopción
+// Función para eliminar un reporte
 document.querySelectorAll('.eliminar-btn').forEach(button => {
     button.addEventListener('click', async function () {
-        const idAdopcion = this.getAttribute('data-id');
+        const idReporte = this.getAttribute('data-id');
 
         Swal.fire({
             title: '¿Estás seguro?',
-            text: 'Esta acción eliminará la adopción de forma permanente.',
+            text: 'Esta acción eliminará el reporte de forma permanente.',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
@@ -146,10 +146,10 @@ document.querySelectorAll('.eliminar-btn').forEach(button => {
             if (result.isConfirmed) {
                 const formData = new FormData();
                 formData.append('action', 'delete');
-                formData.append('id_adopcion', idAdopcion);
+                formData.append('id_reporte', idReporte);
 
                 try {
-                    const response = await fetch('/ProyectoAW/app/controllers/AdopcionController.php', {
+                    const response = await fetch('/ProyectoAW/app/controllers/ReportesController.php', {
                         method: 'POST',
                         body: formData
                     });
@@ -159,7 +159,7 @@ document.querySelectorAll('.eliminar-btn').forEach(button => {
                     if (result.success) {
                         Swal.fire({
                             title: '¡Eliminado!',
-                            text: 'La adopción se eliminó correctamente.',
+                            text: 'El reporte se eliminó correctamente.',
                             icon: 'success',
                             confirmButtonText: 'Aceptar'
                         }).then(() => {
@@ -174,10 +174,10 @@ document.querySelectorAll('.eliminar-btn').forEach(button => {
                         });
                     }
                 } catch (error) {
-                    console.error('Error al eliminar la adopción:', error);
+                    console.error('Error al eliminar el reporte:', error);
                     Swal.fire({
                         title: 'Error',
-                        text: 'Ocurrió un error al intentar eliminar la adopción.',
+                        text: 'Ocurrió un error al intentar eliminar el reporte.',
                         icon: 'error',
                         confirmButtonText: 'Aceptar'
                     });
@@ -189,8 +189,8 @@ document.querySelectorAll('.eliminar-btn').forEach(button => {
 
 // Cargar comentarios dinámicamente al cargar la página
 document.querySelectorAll('.comentarios-list').forEach(async (comentariosList) => {
-    const idAdopcion = comentariosList.getAttribute('id').split('-')[1]; // Obtener el ID de la adopción
-    const comentarios = await obtenerComentarios(idAdopcion);
+    const idReporte = comentariosList.getAttribute('id').split('-')[1]; // Obtener el ID del reporte
+    const comentarios = await obtenerComentarios(idReporte);
 
     if (comentarios.length > 0) {
         comentarios.forEach(comentario => {
