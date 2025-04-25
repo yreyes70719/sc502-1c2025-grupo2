@@ -1,3 +1,11 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$error_message = $_SESSION['error_message'] ?? '';
+unset($_SESSION['error_message']); // Limpiar el mensaje después de mostrarlo
+?>
+
 <link rel="stylesheet" href="public/css/register_styles.css?v=<?= time() ?>">
 
 <div class="app-title">
@@ -29,3 +37,16 @@
     <hr>
     <p><a href="?page=home" class="volver-btn">Volver al Inicio</a></p>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<?php if (!empty($error_message)): ?>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: '<?= htmlspecialchars($error_message) ?>',
+            confirmButtonText: 'Aceptar'
+        });
+    </script>
+<?php endif; ?>

@@ -18,7 +18,7 @@ session_start();
         <label for="tipo">Tipo (Perro, Gato, etc.):</label>
         <input type="text" id="tipo" name="tipo" required>
 
-        <label for="edad">Edad:</label>
+        <label for="edad">Edad:</label> 
         <input type="number" id="edad" name="edad" required>
 
         <label for="estado">Estado de salud:</label>

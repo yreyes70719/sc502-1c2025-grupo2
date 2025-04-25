@@ -18,7 +18,7 @@ async function obtenerComentarios(idAdopcion) {
 document.querySelectorAll('.agregar-comentario-btn').forEach(button => {
     button.addEventListener('click', async function () {
         const idAdopcion = this.getAttribute('data-id'); // Obtener el ID de la adopción
-        const textarea = document.querySelector(`.comentario-textarea[data-id="${idAdopcion}"]`);
+        const textarea = document.querySelector(`.comentario-textarea[data-id="${idAdopcion}"]`); 
         const comentario = textarea.value.trim(); // Obtener el comentario del usuario
 
         if (comentario) {

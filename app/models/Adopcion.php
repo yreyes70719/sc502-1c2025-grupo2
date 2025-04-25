@@ -36,13 +36,19 @@ class Adopcion
     {
         global $conn;
 
-        $sql = "INSERT INTO Adopciones (nombre_mascota, tipo, edad, estado_salud, foto, descripcion, id_usuario) 
-                VALUES ('$nombre_mascota', '$tipo', $edad, '$estado_salud', '$foto', '$descripcion', $id_usuario)";
+        try {
+            $stmt = $conn->prepare("INSERT INTO Adopciones (nombre_mascota, tipo, edad, estado_salud, foto, descripcion, id_usuario) 
+                                    VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssisssi", $nombre_mascota, $tipo, $edad, $estado_salud, $foto, $descripcion, $id_usuario);
 
-        if ($conn->query($sql) === TRUE) {
-            return 1;
-        } else {
-            return 0;
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                throw new Exception("Error al insertar en la base de datos: " . $stmt->error);
+            }
+        } catch (Exception $e) {
+            error_log("Error en el modelo Adopcion::add: " . $e->getMessage());
+            return false;
         }
     }
 

@@ -51,16 +51,18 @@ $reportes = json_decode(file_get_contents($url), true);
                             pulse aquí
                         </a>.
                     </p>
-                    <div class="button-group">
-                        <!-- Botón para cambiar el estado -->
-                        <button class="button cambiar-estado-btn <?= $reporte['estado'] === 'Desaparecido' ? 'btn-encontrado' : 'eliminar-btn' ?>" 
-                                data-id="<?= $reporte['id_reporte'] ?>" 
-                                data-estado="<?= $reporte['estado'] === 'Desaparecido' ? 'Encontrado' : 'Desaparecido' ?>">
-                            <?= $reporte['estado'] === 'Desaparecido' ? 'Marcar como Encontrado' : 'Marcar como Desaparecido' ?>
-                        </button>
-                        <!-- Botón para eliminar el reporte -->
-                        <button class="button eliminar-btn" data-id="<?= $reporte['id_reporte'] ?>">Eliminar</button>
-                    </div>
+                    <?php if ($_SESSION['rol'] === 'Administrador' || (int)$_SESSION['id_usuario'] === (int)$reporte['id_usuario']): ?>
+                        <div class="button-group">
+                            <!-- Botón para cambiar el estado -->
+                            <button class="button cambiar-estado-btn <?= $reporte['estado'] === 'Desaparecido' ? 'btn-encontrado' : 'btn-desaparecido' ?>" 
+                                    data-id="<?= $reporte['id_reporte'] ?>" 
+                                    data-estado="<?= $reporte['estado'] === 'Desaparecido' ? 'Encontrado' : 'Desaparecido' ?>">
+                                <?= $reporte['estado'] === 'Desaparecido' ? 'Marcar como Encontrado' : 'Marcar como Desaparecido' ?>
+                            </button>
+                            <!-- Botón para eliminar el reporte -->
+                            <button class="button eliminar-btn" data-id="<?= $reporte['id_reporte'] ?>">Eliminar</button>
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <div class="comentarios">
                     <h4>Comentarios</h4>

@@ -22,7 +22,7 @@ body {
 }
 
 .parrafoT {
-    font-size: 1.2em; /* Aumenta el tamaño de la fuente */
+    font-size: 1.2em; /* Aumenta el tamaño de la fuente */ 
     color: #333; /* Cambia el color del texto */
     font-style: italic; /* Aplica estilo cursiva */
     margin-bottom: 20px; /* Añade un margen inferior */
@@ -40,10 +40,12 @@ body {
 }
 
 .mascota-img-grande {
-    max-width: 220px; /* La imagen no será más ancha que su contenedor */
-    max-height: 220px; /* Altura máxima de la imagen */
+    max-width: 220px; /* La imagen no será más ancha que este tamaño */
+    max-height: 220px; /* La imagen no será más alta que este tamaño */
+    min-width: 220px; /* La imagen no será más pequeña que este tamaño */
+    min-height: 220px; /* La imagen no será más pequeña que este tamaño */
     object-fit: cover; /* Ajusta la imagen para que se recorte si es necesario */
-    border-radius: 10px; /* Opcional: bordes redondeados */
+    border-radius: 10px; /* Bordes redondeados */
     margin: 10px auto; /* Centra la imagen horizontalmente */
     display: block; /* Asegura que se comporte como un bloque */
 }

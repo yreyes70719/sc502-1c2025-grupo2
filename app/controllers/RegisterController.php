@@ -31,6 +31,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             throw new Exception("El correo ya está registrado.");
         }
 
+        // Validar que el nombre de usuario no exista ya en la base de datos
+        $sql = "SELECT id_usuario FROM Usuarios WHERE nombre_usuario = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $nombre_usuario);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            throw new Exception("El nombre de usuario ya está registrado.");
+        }
+
         // Encriptar la contraseña
         $contraseña_hash = password_hash($contraseña, PASSWORD_BCRYPT);
 
@@ -48,6 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['nombre_usuario'] = $nombre_usuario;
             $_SESSION['rol'] = $rol;
 
+            // Establecer mensaje de éxito
+            $_SESSION['success_message'] = "¡Registro exitoso! Bienvenido, {$nombre_usuario}.";
+
             // Redirigir al inicio con la sesión iniciada
             header("Location: http://localhost/ProyectoAW/?page=home");
             exit;
@@ -55,11 +68,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             throw new Exception("Error al registrar el usuario. Inténtalo de nuevo.");
         }
     } catch (Exception $e) {
-        // Mostrar el error y redirigir al formulario de registro
-        echo "<script>
-            alert('" . $e->getMessage() . "');
-            window.location.href='http://localhost/ProyectoAW/?page=register';
-        </script>";
+        // Establecer mensaje de error
+        $_SESSION['error_message'] = $e->getMessage();
+        header("Location: http://localhost/ProyectoAW/?page=register");
+        exit;
     }
 }
 ?>

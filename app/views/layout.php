@@ -26,7 +26,7 @@ if (!in_array($currentPage, $excludeLayout)) :
         <link rel="stylesheet" href="public/css/navbar_styles.css?v=<?= time() ?>">
         <link rel="stylesheet" href="public/css/home_styles.css?v=<?= time() ?>">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="public/js/script.js"></script>
+        <script src="public/js/script.js?v=<?= time() ?>"></script>
     </head>
     <body>
         <header>
@@ -40,7 +40,9 @@ if (!in_array($currentPage, $excludeLayout)) :
                         <li><a href="?page=adopcion" class="<?= $currentPage === 'adopcion' ? 'active' : '' ?>">Adopción</a></li>
                         <li><a href="?page=soporte" class="<?= $currentPage === 'soporte' ? 'active' : '' ?>">Soporte</a></li>
                         <li><a href="?page=recursos" class="<?= $currentPage === 'recursos' ? 'active' : '' ?>">Recursos</a></li>
-                        <li><a href="?page=dudas" class="<?= $currentPage === 'dudas' ? 'active' : '' ?>">Dudas</a></li>
+                        <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'Administrador'): ?>
+                            <li><a href="?page=dudas" class="<?= $currentPage === 'dudas' ? 'active' : '' ?>">Dudas</a></li>
+                        <?php endif; ?>
                         <li><a href="?page=perfil" class="<?= $currentPage === 'perfil' ? 'active' : '' ?>">Perfil</a></li>
                         
                         <!-- Opciones de sesión -->
@@ -48,7 +50,7 @@ if (!in_array($currentPage, $excludeLayout)) :
                             <?php if (isset($_SESSION['id_usuario'])): ?>
                                 <div class="session-info">
                                     <span>Bienvenido, <?= htmlspecialchars($_SESSION['nombre_usuario']); ?></span>
-                                    <a href="app/controllers/LogoutController.php" class="logout-btn">Cerrar Sesión</a>
+                                    <a href="#" class="logout-btn" id="logout-link">Cerrar Sesión</a>
                                 </div>
                             <?php else: ?>
                                 <div class="session-info">
