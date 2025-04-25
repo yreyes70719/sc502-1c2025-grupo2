@@ -31,9 +31,13 @@ $dudas = Duda::getAll();
                         <tr>
                             <td><?= $duda['id_duda'] ?></td>
                             <td><?= $duda['nombre'] ?></td>
-                            <td><?= $duda['correo'] ?></td>
-                            <td><?= $duda['mensaje'] ?></td>
-                            <td><?= $duda['fecha_envio'] ?></td>
+                            <td>
+                                <a href="mailto:<?= htmlspecialchars($duda['correo']) ?>" class="correo-link">
+                                    <?= htmlspecialchars($duda['correo']) ?>
+                                </a>
+                            </td>
+                            <td><?= htmlspecialchars($duda['mensaje']) ?></td>
+                            <td><?= htmlspecialchars($duda['fecha_envio']) ?></td>
                             <td>
                                 <button class="btn btn-danger btn-sm delete-btn" data-id="<?= $duda['id_duda'] ?>">Borrar</button>
                             </td>
