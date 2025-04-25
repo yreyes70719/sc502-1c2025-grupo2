@@ -3,7 +3,7 @@ session_start();
 $currentPage = isset($_GET['page']) ? $_GET['page'] : 'home';
 
 // Páginas protegidas que requieren sesión activa
-$protectedPages = ['perfil', 'chats', 'reportes', 'adopcion'];
+$protectedPages = ['perfil', 'chats', 'reportes', 'adopcion', 'dudas'];
 
 // Si el usuario intenta acceder a una página protegida sin sesión, redirigir al login
 if (in_array($currentPage, $protectedPages) && !isset($_SESSION['id_usuario'])) {
