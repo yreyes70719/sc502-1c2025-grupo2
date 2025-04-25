@@ -40,7 +40,7 @@ if (!in_array($currentPage, $excludeLayout)) :
                         <li><a href="?page=adopcion" class="<?= $currentPage === 'adopcion' ? 'active' : '' ?>">Adopción</a></li>
                         <li><a href="?page=soporte" class="<?= $currentPage === 'soporte' ? 'active' : '' ?>">Soporte</a></li>
                         <li><a href="?page=recursos" class="<?= $currentPage === 'recursos' ? 'active' : '' ?>">Recursos</a></li>
-                        <li><a href="?page=chats" class="<?= $currentPage === 'chats' ? 'active' : '' ?>">Chats</a></li>
+                        <li><a href="?page=dudas" class="<?= $currentPage === 'dudas' ? 'active' : '' ?>">Dudas</a></li>
                         <li><a href="?page=perfil" class="<?= $currentPage === 'perfil' ? 'active' : '' ?>">Perfil</a></li>
                         
                         <!-- Opciones de sesión -->

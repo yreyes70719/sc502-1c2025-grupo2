@@ -8,7 +8,18 @@ class Adopcion
         global $conn;
 
         try {
-            $sql = "SELECT * FROM Adopciones";
+            // Modificar la consulta para incluir el correo del usuario
+            $sql = "
+                SELECT 
+                    a.*, 
+                    u.correo AS correo_usuario 
+                FROM 
+                    Adopciones a
+                JOIN 
+                    Usuarios u 
+                ON 
+                    a.id_usuario = u.id_usuario
+            ";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {

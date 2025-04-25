@@ -7,7 +7,7 @@ body {
 
 .adopcion-container {
     background-color: white;
-    padding: 100px 20px 20px 20px;
+    padding: 60px 20px 20px 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     width: 98%;
@@ -245,3 +245,17 @@ button:hover {
     text-decoration: underline;
 } 
 
+.estado {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.estado.disponible {
+    background-color: #4CAF50; /* Verde para Disponible */
+}
+
+.estado.adoptado {
+    background-color: #F44336; /* Rojo para Adoptado */
+}

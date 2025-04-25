@@ -42,7 +42,16 @@ $adopciones = json_decode(file_get_contents($url), true);
                     <p><strong>Tipo:</strong> <?= htmlspecialchars($adopcion['tipo']) ?></p>
                     <p><strong>Estado de salud:</strong> <?= htmlspecialchars($adopcion['estado_salud']) ?></p>
                     <p><strong>Descripción:</strong> <?= htmlspecialchars($adopcion['descripcion']) ?></p>
-                    <p>Si está interesado en adoptar <a href="contacto.html" class="contact-link">pulse aquí</a>.</p>
+                    <p><strong>Estado:</strong> 
+                        <span class="estado <?= $adopcion['estado'] === 'Disponible' ? 'disponible' : 'adoptado' ?>">
+                            <?= htmlspecialchars($adopcion['estado']) ?>
+                        </span>
+                    </p>
+                    <p>Para contactar al dueño de la mascota via mail, 
+                        <a href="mailto:<?= htmlspecialchars($adopcion['correo_usuario']) ?>" class="contact-link">
+                            pulse aquí
+                        </a>.
+                    </p>
                 </div>
                 <div class="comentarios">
                     <h4>Comentarios</h4>
