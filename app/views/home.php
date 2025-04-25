@@ -1,3 +1,9 @@
+<?php
+require_once __DIR__ . '/../models/Estadisticas.php';
+
+$mascotasEncontradas = Estadisticas::getMascotasEncontradas();
+$adopcionesRealizadas = Estadisticas::getAdopcionesRealizadas();
+?>
 <link rel="stylesheet" href="public/css/home_styles.css?v=<?= time() ?>">
 <div class="home-container">
     <h2 class="homeT">Bienvenido a PawFinder</h2>
@@ -48,11 +54,11 @@
             <tbody>
                 <tr>
                     <td>Mascotas encontradas:</td>
-                    <td>1200</td>
+                    <td><?= $mascotasEncontradas ?></td>
                 </tr>
                 <tr>
                     <td>Adopciones realizadas:</td>
-                    <td>800</td>
+                    <td><?= $adopcionesRealizadas ?></td>
                 </tr>
             </tbody>
         </table>
